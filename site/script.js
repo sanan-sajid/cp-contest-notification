@@ -9,7 +9,7 @@ async function fetchContestData() {
 
         try {
             console.log(selectedValue)
-            const response = await fetch(`https://cp-contest-notification-production.up.railway.app/process?choice=${selectedValue}`);
+            const response = await fetch(`https://contest-notification.up.railway.app/process?choice=${selectedValue}`);
             if (!response.ok) throw new Error('Network response was not ok');
             const data = await response.json();
             contestInfo.textContent = data.output;
