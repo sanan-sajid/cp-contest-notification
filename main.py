@@ -1,9 +1,13 @@
+from flask import Flask, request, jsonify
 from atcoder import result as atcoder
 from codeforces import result as codeforces
 from codechef import result as codechef
 
-def main():
-    choice = input("Which file to process? (1/2/3): ")
+app = Flask(__name__)
+
+@app.route('/process', methods=['GET'])
+def process():
+    choice = request.args.get('choice')
 
     if choice == '1':
         output = atcoder()
@@ -11,7 +15,10 @@ def main():
         output = codeforces()
     elif choice == '3':
         output = codechef()
-    print(output)
+    else:
+        return jsonify({"error": "Invalid choice!"}), 400
+
+    return jsonify({"output": output})
 
 if __name__ == "__main__":
-    main()
+    app.run()
