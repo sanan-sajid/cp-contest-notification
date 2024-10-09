@@ -37,6 +37,7 @@ message = (f"AtCoder Beginner Contest {contest_num} will start on {convert_japan
            f"Contest link: https://atcoder.jp{res[1]['href']}\n"
            "Happy Coding! 😀")
 
-print(message)
+def result():
+    return message
 
 

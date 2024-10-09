@@ -29,4 +29,5 @@ message = (f"Codechef {contest['contest_name']} will start on {formatted_date}.\
            f"Contest link: https://www.codechef.com/{contest['contest_code']}\n"
            "Happy Coding! 😀")
 
-print(message)
+def result():
+    return message

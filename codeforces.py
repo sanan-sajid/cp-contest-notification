@@ -16,7 +16,7 @@ for contests in data:
         continue
     contest=contests
     
-print(contest)
+# print(contest)
 
 unix_timestamp=contest['startTimeSeconds']
 utc_time = datetime.datetime.utcfromtimestamp(unix_timestamp)
@@ -28,11 +28,12 @@ formatted_time = ist_time.strftime('%d') + (
     {1: 'st', 2: 'nd', 3: 'rd'}.get(int(ist_time.strftime('%d')) % 10, 'th')
 ) + ist_time.strftime(' %B %Y at %I:%M %p IST')
 
-print(formatted_time)
+# print(formatted_time)
 
 message = (f"{contest['name']} will start on {formatted_time}.\n"
            f"Contest duration is {contest['durationSeconds']/(3600)} hours.\n\n"
            f"Contest link: https://codeforces.com/contests/{contest['id']}\n"
            "Happy Coding! 😀")
 
-print(message)
+def result():
+    return message
