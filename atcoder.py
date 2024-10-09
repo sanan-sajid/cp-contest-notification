@@ -32,9 +32,11 @@ res = test()
 contest_num=res[1]['href'][-3]+res[1]['href'][-2]+res[1]['href'][-1]
 
 
-message = (f"AtCoder Beginner Contest {contest_num} will start on 12th October, 2024 at {convert_japan_to_india_time(res[0].text)}.\n"
+message = (f"AtCoder Beginner Contest {contest_num} will start on {convert_japan_to_india_time(res[0].text)}.\n"
            "Contest duration is 100 minutes.\n\n"
            f"Contest link: https://atcoder.jp{res[1]['href']}\n"
            "Happy Coding! 😀")
 
 print(message)
+
+
