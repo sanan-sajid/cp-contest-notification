@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify
 from atcoder import result as atcoder
 from codeforces import result as codeforces
 from codechef import result as codechef
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app) 
 
 @app.route('/process', methods=['GET'])
 def process():

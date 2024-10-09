@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contest Platform Selector</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Select a Programming Contest Platform</h1>
+        <select id="platform-selector">
+            <option value="">--Select Platform--</option>
+            <option value="1">AtCoder</option>
+            <option value="2">Codeforces</option>
+            <option value="3">CodeChef</option>
+        </select>
+        <button onclick="fetchContestData()">Submit</button>
+        <p id="selected-platform"></p>
+        <div id="contest-info"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
