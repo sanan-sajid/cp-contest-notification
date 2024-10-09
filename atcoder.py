@@ -32,12 +32,16 @@ res = test()
 contest_num=res[1]['href'][-3]+res[1]['href'][-2]+res[1]['href'][-1]
 
 
-message = (f"AtCoder Beginner Contest {contest_num} will start on {convert_japan_to_india_time(res[0].text)}.\n"
+time=convert_japan_to_india_time(res[0].text)
+dt = datetime.strptime(time, "%Y-%m-%d %I:%M:%S %p IST")
+formatted_date = dt.strftime("%dth %B %Y at %I:%M %p").replace("th", "th" if dt.day % 10 == 3 and dt.day != 13 else "st" if dt.day % 10 == 1 and dt.day != 11 else "nd" if dt.day % 10 == 2 and dt.day != 12 else "th")
+
+message = (f"AtCoder Beginner Contest {contest_num} will start on {formatted_date}.\n"
            "Contest duration is 100 minutes.\n\n"
            f"Contest link: https://atcoder.jp{res[1]['href']}\n"
            "Happy Coding! 😀")
 
 def result():
     return message
-
+print(message)
 
