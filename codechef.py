@@ -7,7 +7,6 @@ response = requests.get(url)
 
 data=response.json()
 contest=data['future_contests'][0]
-print(contest)
 
 dt = datetime.fromisoformat(contest['contest_start_date_iso'])
 
