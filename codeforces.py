@@ -37,3 +37,5 @@ message = (f"{contest['name']} will start on {formatted_time}.\n"
 
 def result():
     return message
+
+print(message)

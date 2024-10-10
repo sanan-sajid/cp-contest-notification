@@ -43,5 +43,6 @@ message = (f"AtCoder Beginner Contest {contest_num} will start on {formatted_dat
 
 def result():
     return message
-print(message)
 
+
+print(message)

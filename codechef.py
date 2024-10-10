@@ -31,3 +31,5 @@ message = (f"Codechef {contest['contest_name']} will start on {formatted_date}.\
 
 def result():
     return message
+
+print(message)
