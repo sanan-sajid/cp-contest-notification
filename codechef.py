@@ -29,7 +29,17 @@ message = (f"Codechef {contest['contest_name']} will start on {formatted_date}.\
            f"Contest link: https://www.codechef.com/{contest['contest_code']}\n"
            "Happy Coding! 😀")
 
-def result():
-    return message
+facebook_message = (f"Upcoming Contest: 𝐂𝐨𝐝𝐞𝐂𝐡𝐞𝐟 {contest['contest_name']}\n"
+                    f"Date: {dt.strftime('%d')}𝐭𝐡 {dt.strftime('%B')}, {dt.strftime('%A')}, {dt.strftime('%Y')}\n"
+                    f"Contest Timing: {hour}:{dt.strftime('%M %p')} 𝐈𝐒𝐓\n"
+                    f"Duration: {contest['contest_duration']} 𝐦𝐢𝐧𝐮𝐭𝐞𝐬\n\n"
+                    f"Contest link: https://www.codechef.com/{contest['contest_code']}\n"
+                    "Happy Coding! 😀")
 
-print(message)
+def result(option):
+    if option == "whatsapp":
+        print(message)
+        return message
+    elif option == "facebook":
+        print(facebook_message)
+        return facebook_message

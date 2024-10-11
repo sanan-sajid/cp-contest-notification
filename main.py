@@ -12,11 +12,17 @@ def process():
     choice = request.args.get('choice')
 
     if choice == '1':
-        output = atcoder()
+        output = atcoder("whatsapp")
     elif choice == '2':
-        output = codeforces()
+        output = codeforces("whatsapp")
     elif choice == '3':
-        output = codechef()
+        output = codechef("whatsapp")
+    elif choice == '4':
+        output = atcoder("facebook")    
+    elif choice == '5':
+        output = codeforces("facebook")    
+    elif choice == '6':
+        output = codechef("facebook")    
     else:
         return jsonify({"error": "Invalid choice!"}), 400
 

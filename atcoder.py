@@ -41,8 +41,21 @@ message = (f"AtCoder Beginner Contest {contest_num} will start on {formatted_dat
            f"Contest link: https://atcoder.jp{res[1]['href']}\n"
            "Happy Coding! 😀")
 
-def result():
-    return message
+facebook_message = (f"Upcoming Contest: 𝐀𝐭𝐂𝐨𝐝𝐞𝐫 𝐁𝐞𝐠𝐢𝐧𝐧𝐞𝐫 𝐂𝐨𝐧𝐭𝐞𝐬𝐭 {contest_num}\n"
+                    f"Date: {dt.strftime('%d')}𝐭𝐡 {dt.strftime('%B')}, {dt.strftime('%A')}, {dt.strftime('%Y')}\n"
+                    f"Contest Timing: {dt.strftime('%I:%M %p')} 𝐈𝐒𝐓\n"
+                    "Duration: 𝟏𝟎𝟎 𝐦𝐢𝐧𝐮𝐭𝐞𝐬\n\n"
+                    f"Contest link: https://atcoder.jp{res[1]['href']}\n"
+                    "Happy Coding! 😀")
 
 
-print(message)
+
+
+def result(option):
+    if option == "whatsapp":
+        print(message)
+        return message
+    elif option == "facebook":
+        print(facebook_message)
+        return facebook_message
+
