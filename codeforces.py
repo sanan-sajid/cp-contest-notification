@@ -15,7 +15,7 @@ for contests in data:
     if(contests['type']!="CF"):
         continue
     contest=contests
-    
+
 # print(contest)
 
 unix_timestamp=contest['startTimeSeconds']
@@ -27,6 +27,12 @@ formatted_time = ist_time.strftime('%d') + (
     'th' if 4 <= int(ist_time.strftime('%d')) <= 20 else
     {1: 'st', 2: 'nd', 3: 'rd'}.get(int(ist_time.strftime('%d')) % 10, 'th')
 ) + ist_time.strftime(' %B %Y at %I:%M %p IST')
+
+# Convert durationSeconds into hours and minutes
+duration_seconds = contest['durationSeconds']
+hours = duration_seconds // 3600
+minutes = (duration_seconds % 3600) // 60
+formatted_duration = f"{hours} hours" if minutes == 0 else f"{hours} hours {minutes} minutes"
 
 def bold_text(text):
     bold_map = {
@@ -41,14 +47,14 @@ def bold_text(text):
     return ''.join(bold_map.get(char, char) for char in text)
 
 message = (f"{contest['name']} will start on {formatted_time}.\n"
-           f"Contest duration is {contest['durationSeconds']/(3600)} hours.\n\n"
+           f"Contest duration is {formatted_duration}.\n\n"
            f"Contest link: https://codeforces.com/contests/{contest['id']}\n"
            "Happy Coding! 😀")
 
 facebook_message = (f"Upcoming Contest: {bold_text(str(contest['name']))}\n"
                     f"Date: {bold_text(str(ist_time.strftime('%d')))}𝐭𝐡 {bold_text(str(ist_time.strftime('%B')))}, {bold_text(str(ist_time.strftime('%A')))}, {bold_text(str(ist_time.strftime('%Y')))}\n"
                     f"Contest Timing: {bold_text(str(ist_time.strftime('%I:%M %p')))} 𝐈𝐒𝐓\n"
-                    f"Duration: {bold_text(str(contest['durationSeconds'] / 3600))} 𝐡𝐨𝐮𝐫𝐬\n\n"
+                    f"Duration: {bold_text(formatted_duration)}\n\n"
                     f"Contest link: https://codeforces.com/contest/{contest['id']}\n"
                     "Happy Coding! 😀")
 
@@ -61,3 +67,4 @@ def result(option):
         return facebook_message
     
 result("facebook")
+result("whatsapp")
