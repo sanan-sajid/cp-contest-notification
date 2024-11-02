@@ -9,14 +9,20 @@ response.raise_for_status()
 data=response.json()
 data=data['result']
 contest={}
+
 for contests in data:
     if(contests['phase']=="FINISHED"):
         break
+    temp=contests
+
+    if 'name' not in contest:   
+        contest=contests
+        continue    
+    else:
+        if(contests['startTimeSeconds']<contest['startTimeSeconds']):
+            contest=contests
     if(contests['type']!="CF"):
         continue
-    contest=contests
-
-# print(contest)
 
 unix_timestamp=contest['startTimeSeconds']
 utc_time = datetime.datetime.utcfromtimestamp(unix_timestamp)
@@ -65,6 +71,5 @@ def result(option):
     elif option == "facebook":
         print(facebook_message)
         return facebook_message
-    
-result("facebook")
-result("whatsapp")
+
+
